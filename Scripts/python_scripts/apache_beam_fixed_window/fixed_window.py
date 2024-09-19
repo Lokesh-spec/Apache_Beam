@@ -28,6 +28,7 @@ def encode_byte_string(element):
 
 def custom_timestamp(elements):
   unix_timestamp = elements[7]
+  print(elements)
   return beam.window.TimestampedValue(elements, int(unix_timestamp))
 
 def calculateProfit(elements):
@@ -44,7 +45,7 @@ pubsub_data= (
                 # STR_2,Mumbai,PR_265,Cosmetics,8,39,66,1553578219/r/n
 
                 | 'Remove extra chars' >> beam.Map(lambda data: (data.rstrip().lstrip()))          # STR_2,Mumbai,PR_265,Cosmetics,8,39,66,1553578219
-                | 'Split Row' >> beam.Map(lambda row: row.decode('utf-8').split(','))                             # [STR_2,Mumbai,PR_265,Cosmetics,8,39,66,1553578219]
+                | 'Split Row' >> beam.Map(lambda row: row.split(','))                             # [STR_2,Mumbai,PR_265,Cosmetics,8,39,66,1553578219]
                 | 'Filter By Country' >> beam.Filter(lambda elements : (elements[1] == "Mumbai" or elements[1] == "Bangalore"))
                 | 'Create Profit Column' >> beam.Map(calculateProfit)                              # [STR_2,Mumbai,PR_265,Cosmetics,8,39,66,1553578219,27]
                 | 'Apply custom timestamp' >> beam.Map(custom_timestamp) 
@@ -52,7 +53,8 @@ pubsub_data= (
                 | 'Window' >> beam.WindowInto(window.FixedWindows(20))
                 | 'Sum values' >> beam.CombinePerKey(sum)
                 | 'Encode to byte string' >> beam.Map(encode_byte_string)  #Pubsub takes data in form of byte strings 
-                | 'Write to pus sub' >> beam.io.WriteToPubSub(output_topic)
+                # | 'Write to pus sub' >> beam.io.WriteToPubSub(output_topic)
+
 	             )
 
 result = p.run()

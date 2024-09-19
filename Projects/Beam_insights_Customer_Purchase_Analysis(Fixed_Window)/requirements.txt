@@ -1,0 +1,4 @@
+apache-beam[gcp]
+pandas
+argparse
+google-cloud-pubsub
