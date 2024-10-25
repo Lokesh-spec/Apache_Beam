@@ -34,8 +34,8 @@ Beam_Insights_Customer_Purchasing_Analytics
 - **Results/Images/**: Contains visualizations generated from the analysis.
   - `Age and Loyalty Score Relationship.png`: Shows the relationship between customer age and loyalty score.
   - `Bubble Chart of Income vs Age with Purchase Amount as Size.png`: A bubble chart visualizing income vs age, with purchase amount represented by the size of the bubbles.
-  - `Customer Age Vs Loyalty Overview.png`: Overview of customer age distribution in relation to loyalty.
-  - `Customer Purchase Patterns by Age and Income.png`: Insights into customer purchase patterns across different ages and income groups.
+  - `Customer Age Vs Loyalty Overview.png`: Overview of customer age distribution about loyalty.
+  - `Customer Purchase Patterns by Age and Income.png` provides insights into customer purchase patterns across different ages and income groups.
   - `Purchase Amount and Frequency by Region.png`: Visualizes purchase frequency and amount in different regions.
   - `Region-wise Purchase Data.png`: Visual breakdown of purchase data by region.
   
@@ -43,8 +43,6 @@ Beam_Insights_Customer_Purchasing_Analytics
   - `AgeVsIncome&PurchaseAmount-00000-of-00001.csv`: Age vs income and purchase amount data.
   - `AgeVsLoyality-00000-of-00001.csv`: Age vs loyalty score data.
   - `RegionVsPurchaseAmount&Frequency-00000-of-00001.csv`: Region-wise purchase amount and frequency.
-
-- **Venv/**: Virtual environment used for the project.
 
 - **customer_analysis_data_pipeline.py**: Python script that contains the data pipeline using Apache Beam to process customer data.
 
