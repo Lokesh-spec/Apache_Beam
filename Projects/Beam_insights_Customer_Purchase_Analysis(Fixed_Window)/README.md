@@ -42,8 +42,8 @@ This project consists of two main components:
 1. **Clone the repository**:
 
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/Lokesh-spec/Apache_Beam/tree/main/Projects
+    cd Apache_beam/Projects
     ```
 
 2. **Set up a virtual environment**:
